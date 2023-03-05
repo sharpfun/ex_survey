@@ -1,0 +1,32 @@
+<.form for={%{}} id="survey-form" phx-submit="save">
+  <h3 class="mb-4"><%= @step.title %></h3>
+
+  <%= for input <- Map.get(@step, :inputs, []) do %>
+    <%= case {input.type, Map.get(input, :style, "text")} do %>
+      <% {"select", _style } -> %>
+        <.input
+          type="select"
+          label={input.question}
+          name={input.name}
+          errors={Map.get(input, :errors, [])}
+          options={input.options |> Enum.map(&{&1.title, &1.value})}
+          value={Map.get(input, :value)}
+        />
+      <% {"text", style } -> %>
+        <.input
+          type={style}
+          label={input.question}
+          name={input.name}
+          errors={Map.get(input, :errors, [])}
+          placeholder={Map.get(input, :placeholder)}
+          value={Map.get(input, :value)}
+        />
+    <% end %>
+  <% end %>
+
+  <%= if !Map.get(@step, :final, false) do %>
+    <.button type="submit" class="mt-4" phx-disable-with="Submit...">
+      Next
+    </.button>
+  <% end %>
+</.form>
