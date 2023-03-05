@@ -6,6 +6,9 @@ Simple survey implemented in Phoeinix LiveView. Features:
 - Validates input, like integer min max value, field is required, etc
 - Form is rendered in LiveView
 
+![Screenshot from 2023-03-05 13-29-10](https://user-images.githubusercontent.com/4017513/222961409-0c85e315-dde1-468c-99a3-c8ba7fd92c64.png)
+![Screenshot from 2023-03-05 13-30-03](https://user-images.githubusercontent.com/4017513/222961424-b0801c27-2c21-471c-bd8e-60e29b04a74b.png)
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
